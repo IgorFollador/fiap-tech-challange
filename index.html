@@ -1,61 +1,48 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Formulário POST</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-  </head>
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POSTECH - FULLSTACK</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <div class="container">
-      <h1 class="mt-5">Formulário POST</h1>
-      <form id="apiForm" action="https://fsdt-contact-acf4ab9867a7.herokuapp.com/contact" method="post" class="mt-4">
-        <div class="form-group">
-          <label for="fname1">Nome 1:</label>
-          <input type="text" id="fname1" name="fname1" class="form-control" />
+        <div class="header">
+          <h2>POSTECH - FULLSTACK</h2>
+          <p>Desafio aula inaugural</p>
         </div>
-        <div class="form-group">
-          <label for="fname2">Nome 2:</label>
-          <input type="text" id="fname2" name="fname2" class="form-control" />
+        <div class="content">
+          <label>Informações do grupo</label>
+          <form id="form">
+            <div class="form-group">
+              <label for="name1">Nome:</label>
+              <input type="text" id="name1" name="name1" required>
+            </div>
+            <div class="form-group">
+              <label for="name2">Nome:</label>
+              <input type="text" id="name2" name="name2" required>
+            </div>
+            <div class="form-group">
+              <label for="name3">Nome:</label>
+              <input type="text" id="name3" name="name3" required>
+            </div>
+            <div class="form-group">
+              <label for="name4">Nome:</label>
+              <input type="text" id="name4" name="name4" required>
+            </div>
+            <div class="form-group">
+              <label for="name5">Nome:</label>
+                <input type="text" id="name5" name="name5" required>
+            </div>
+            <div class="form-group">
+                <label for="groupHistory">História do grupo:</label>
+                <textarea id="groupHistory" name="groupHistory" rows="4" required></textarea>
+              </div>
+              <button type="submit">Enviar</button>
+          </form>
         </div>
-        <div class="form-group">
-          <label for="fname3">Nome 3:</label>
-          <input type="text" id="fname3" name="fname3" class="form-control" />
-        </div>
-        <div class="form-group">
-          <label for="fname4">Nome 4:</label>
-          <input type="text" id="fname4" name="fname4" class="form-control" />
-        </div>
-        <div class="form-group">
-          <label for="groupHistory">História do Grupo:</label>
-          <textarea id="groupHistory" name="groupHistory" class="form-control"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-
-    <script>
-      document.getElementById("apiForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        var xhr = new XMLHttpRequest();
-        xhr.open(this.method, this.action, true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            alert("Dados enviados com sucesso!");
-          }
-        };
-
-        var data = {
-          fname1: document.getElementById("fname1").value,
-          fname2: document.getElementById("fname2").value,
-          fname3: document.getElementById("fname3").value,
-          fname4: document.getElementById("fname4").value,
-          groupHistory: document.getElementById("groupHistory").value,
-        };
-
-        xhr.send(JSON.stringify(data));
-      });
-    </script>
-  </body>
+      </div>
+    <script src="script.js"></script>
+</body>
 </html>
